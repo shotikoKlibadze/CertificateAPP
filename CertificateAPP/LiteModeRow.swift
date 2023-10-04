@@ -8,12 +8,29 @@
 import SwiftUI
 
 struct LiteModeRow: View {
+    @AppStorage("isLiteMode") var isLiteMode: Bool = false
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Toggle(isOn: $isLiteMode, label: {
+            HStack(spacing: 12) {
+                GradientIcon(icon: "speedometer")
+
+                VStack(alignment: .leading) {
+                    Text("Lite Mode")
+                        .font(.subheadline)
+                        .fontWeight(.semibold)
+
+                    Text("Better performance. Recommended for iPhone X and older.")
+                        .font(.caption2)
+                        .opacity(0.7)
+                }
+            }
+        })
+        .tint(.blue)
     }
 }
 
-struct LiteModeRow_Previews: PreviewProvider {
+struct LitModeRow_Previews: PreviewProvider {
     static var previews: some View {
         LiteModeRow()
     }

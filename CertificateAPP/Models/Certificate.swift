@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+struct Certificate: Identifiable, Decodable, Hashable {
+    var id: String
+    var course: String
+    var date: String
+    var logo: String
+    var instructor: String
+}
+

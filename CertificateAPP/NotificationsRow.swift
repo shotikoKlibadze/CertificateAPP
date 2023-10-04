@@ -8,8 +8,23 @@
 import SwiftUI
 
 struct NotificationsRow: View {
+
+    @State private var subscribed: Bool = true
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Toggle(isOn: $subscribed) {
+            HStack(spacing: 12) {
+                GradientIcon(icon: "bell.fill")
+                VStack(alignment: .leading) {
+                    Text("Notify me of new content")
+                        .font(.subheadline)
+                        .fontWeight(.semibold)
+                    Text("Max once a week.")
+                        .font(.caption2)
+                        .opacity(0.7)
+                }
+            }
+        }
+        .tint(.blue)
     }
 }
 
